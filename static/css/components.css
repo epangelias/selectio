@@ -125,7 +125,7 @@
   }
 }
 
-.hidePlaceholderBanner .banner.placeholder {
+.banner:not([data-hide="true"])~.banner-closed-button {
   display: none;
 }
 
@@ -213,7 +213,8 @@
 /* Answer Box */
 
 .answer-box {
-  padding: var(--spacing-2);
+  position: relative;
+  padding: var(--spacing) var(--spacing-2);
   margin: var(--spacing) 0;
   background-color: var(--bg2);
   width: 100%;
@@ -225,4 +226,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .selection-preview {
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: var(--spacing);
+    height: calc(100% - var(--spacing-2));
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    opacity: 0.5;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  button.back {
+    position: absolute;
+    top: var(--spacing);
+    left: var(--spacing);
+    margin: 0;
+  }
+
+  button.generate {
+    position: relative;
+    z-index: 10;
+  }
+
+  button.generate-small {
+    position: absolute;
+    bottom: var(--spacing);
+    left: var(--spacing);
+    margin: 0;
+  }
 }

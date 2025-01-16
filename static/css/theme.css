@@ -242,8 +242,9 @@ button:not(.link),
   }
 
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.3;
     cursor: default;
+    box-shadow: none;
   }
 
   &:focus-visible {
