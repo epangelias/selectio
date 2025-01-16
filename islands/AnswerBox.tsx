@@ -6,6 +6,7 @@ import IconPlus from 'tabler-icons/plus.tsx';
 interface Thread {
   title: string;
   selectedText: string;
+  loading: boolean;
 }
 
 export function AnswerBox() {
@@ -24,6 +25,7 @@ export function AnswerBox() {
     const thread = {
       title: selectedText.value,
       selectedText: selectedText.value,
+      loading: true,
     } as Thread;
     threads.value = [...threads.value, thread];
   }
@@ -46,9 +48,7 @@ export function AnswerBox() {
             <button class='back' onClick={back}>
               <IconBack />
             </button>
-            <div>
-              <h3>{currentThread.value.title}</h3>
-            </div>
+            <div className='loader'></div>
           </>
         )
         : (
