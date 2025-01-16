@@ -214,13 +214,15 @@
 
 .answer-box {
   padding: var(--spacing-2);
-  margin-top: var(--spacing-2);
+  margin: var(--spacing) 0;
   background-color: var(--bg2);
   width: 100%;
-  text-align: center;
   box-shadow: var(--field-shadow);
   border-radius: var(--radius-2);
   flex: 0.3;
   max-height: 200px;
   border: var(--border-width) solid var(--bg3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
