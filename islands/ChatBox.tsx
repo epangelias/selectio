@@ -7,6 +7,8 @@ import { ChatData } from '@/app/types.ts';
 import { showOutOfTokensDialog } from '@/islands/OutOfTokensDialog.tsx';
 import { delay } from '@std/async/delay';
 import IconSend from 'tabler-icons/arrow-up.tsx';
+import { IS_BROWSER } from 'fresh/runtime';
+import { marked } from 'marked';
 
 export default function ChatBox({ data }: { data: ChatData }) {
   const global = useGlobal();

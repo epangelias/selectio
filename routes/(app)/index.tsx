@@ -20,8 +20,8 @@ export default define.page<typeof handler>(({ data }) => {
       {data?.chatData
         ? (
           <>
-            <AnswerBox />
             <ChatBox data={data.chatData} />
+            <AnswerBox />
           </>
         )
         : (

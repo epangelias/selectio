@@ -23,7 +23,7 @@ export function createUser(name: string, email: string, password: string) {
     name,
     email,
     password,
-    tokens: 5,
+    tokens: 500,
     isSubscribed: false,
     hasSubscribed: false,
     isEmailVerified: false,
