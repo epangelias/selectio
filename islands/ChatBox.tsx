@@ -66,7 +66,7 @@ export default function ChatBox({ data }: { data: ChatData }) {
 
     watchSSE('/api/ai', {
       onMessage(newMessage: AIMessage) {
-        if (newMessage == null) return generating.value = false;
+        if (newMessage == null) return (generating.value = false);
         message.content = newMessage.content;
         message.html = newMessage.html;
         chatData.value = { ...chatData.value };
@@ -95,11 +95,24 @@ export default function ChatBox({ data }: { data: ChatData }) {
     <>
       <div class='chat-box'>
         <div class='messages' ref={messagesRef}>
-          {chatData.value.messages.filter((m: AIMessage) => m.role !== 'system').map(ChatMessage)}
+          {chatData.value.messages.length > 0
+            ? (
+              chatData.value.messages
+                .filter((m: AIMessage) => m?.role !== 'system')
+                .map(ChatMessage)
+            )
+            : <p class='empty-chat-message'>No messages yet. Start a conversation!</p>}
         </div>
 
         <form onSubmit={onSubmit}>
-          <textarea rows={1} autocomplete='off' autofocus required ref={inputRef} aria-label='Type a message'>
+          <textarea
+            rows={1}
+            autocomplete='off'
+            autofocus
+            required
+            ref={inputRef}
+            aria-label='Type a message'
+          >
           </textarea>
           <button disabled={generating.value}>
             <IconSend />

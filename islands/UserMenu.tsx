@@ -1,5 +1,5 @@
 import { useGlobal } from '@/islands/Global.tsx';
-import { useSignal, useSignalEffect } from '@preact/signals';
+import { useSignal } from '@preact/signals';
 import { useEffect, useRef } from 'preact/hooks';
 import { Meth } from '@/lib/utils/meth.ts';
 
@@ -12,10 +12,20 @@ export function UserMenu() {
   const checkPopoverState = () => {
     isOpen.value = !!popover.current?.matches(':popover-open');
   };
+
   useEffect(() => {
     popover.current?.addEventListener('toggle', checkPopoverState);
     return () => popover.current?.removeEventListener('toggle', checkPopoverState);
   }, [popover.current]);
+
+  // Function to handle clearing the chat
+  const clearChat = async () => {
+    if (confirm('Are you sure you want to clear all chat messages?')) {
+      await fetch('/api/chatdata', {
+        method: 'DELETE',
+      });
+    }
+  };
 
   return (
     <>
@@ -34,6 +44,9 @@ export function UserMenu() {
             </li>
             <li>
               {!global.user.value?.isSubscribed && global.stripeEnabled && <a href='/user/pricing'>Subscribe</a>}
+            </li>
+            <li>
+              <button onClick={clearChat}>Clear Chat</button>
             </li>
             <li>
               <a href='/user/signout'>Sign Out</a>

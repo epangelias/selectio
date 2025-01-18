@@ -18,11 +18,17 @@ Exemplum:
 
 What is artificial intelligence?
 
-Responsio,
+Responsio
+"""
+**Quaestio:**
+"Quid est intelligentia artificialis?"
 
-Quaestio: "Quid est intelligentia artificialis?"
-Responsio: "Intelligentia artificialis est disciplina informaticae, quae machinas creare studet, ut opera quae solent intelligentiam humanam requirere, efficaciter perficiant."
-Summam Anglice: Artificial intelligence is a field of computer science focused on creating machines capable of performing tasks that typically require human intelligence.
+**Responsio**
+Intelligentia artificialis est disciplina informaticae, quae machinas creare studet, ut opera quae solent intelligentiam humanam requirere, efficaciter perficiant.
+
+**Summam Anglice:**
+Artificial intelligence is a field of computer science focused on creating machines capable of performing tasks that typically require human intelligence.
+"""
 
 Nota Bene: Omnes responsiones et summaria perspicuitati et diligentiae studeant.`;
 
